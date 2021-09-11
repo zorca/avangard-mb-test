@@ -11,6 +11,10 @@
 |
 */
 
+use App\Http\Controllers\WeatherInformerController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('weather/{city}', 'WeatherInformerController@show')->name('weather.show');
