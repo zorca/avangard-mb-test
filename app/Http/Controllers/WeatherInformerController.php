@@ -14,13 +14,18 @@ class WeatherInformerController extends Controller
         $cities = [
             'bryansk' => [
                 'name' => 'Брянск',
-                'lat' =>'34.36667',
-                'lon' => '53.25000',
+                'lat' =>'53.2521',
+                'lon' => '34.3717',
             ],
             'kaluga' => [
                 'name' => 'Калуга',
-                'lat' => '36.266670',
-                'lon' => '54.533330',
+                'lat' => '54.5293',
+                'lon' => '36.2754',
+            ],
+            'kazan' => [
+                'name' => 'Казань',
+                'lat' => '55.7887',
+                'lon' => '49.1221',
             ],
         ];
 
@@ -34,7 +39,7 @@ class WeatherInformerController extends Controller
 
         $httpClient = new Client();
 
-        $url = sprintf('https://api.weather.yandex.ru/v2/informers??lat=%s&lon=%s&lang=ru_RU', $cityInfo['lat'], $cityInfo['lon']);
+        $url = sprintf('https://api.weather.yandex.ru/v2/informers?lat=%s&lon=%s&lang=ru_RU', $cityInfo['lat'], $cityInfo['lon']);
 
         try {
             $response = $httpClient->get( $url, ['headers' => ['X-Yandex-API-Key' => config('weather.yandex_weather_api_key')]]);
