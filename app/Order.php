@@ -25,8 +25,8 @@ class Order extends Model
     {
         $statuses = [
             0 => 'новый',
-            10 => 'подтвержден',
-            20 => 'завершен',
+            10 => 'подтверждён',
+            20 => 'завершён',
         ];
         return $statuses[$this->status];
     }
