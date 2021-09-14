@@ -26,7 +26,7 @@
                 <tbody>
                     @foreach ($orders as $order)
                         <tr class="">
-                            <td class="text-right border p-4">{{ $order['id'] }}</td>
+                            <td class="text-right border p-4"><a href="{{ route('orders.show', ['order' => $order['id']]) }}" target="_blank">{{ $order['id'] }}</a></td>
                             <td class="border p-4">{{ $order['partner']['name'] }}</td>
                             <td class="border p-4">
                                 <ul>

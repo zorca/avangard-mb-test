@@ -18,5 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('orders', 'OrderController@index')->name('orders.index');
+Route::get('orders/{order}', 'OrderController@show')->name('orders.show');
 
 Route::get('weather/{city}', 'WeatherInformerController@show')->name('weather.show');

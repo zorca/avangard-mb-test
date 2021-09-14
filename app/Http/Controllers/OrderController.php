@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Order;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
@@ -12,5 +10,19 @@ class OrderController extends Controller
     {
         $orders = Order::query()->with('partner')->paginate();
         return view('orders.index', ['orders' => $orders]);
+    }
+
+    public function show(Order $order)
+    {
+        return view('orders.show', ['order' => $order]);
+    }
+
+    public function update(Order $order)
+    {
+        $validated = request()->validate([
+            'client_email' => 'required|email',
+            'partner_name' => 'required',
+        ]);
+        return response()->json(['message' => 'all ok']);
     }
 }
