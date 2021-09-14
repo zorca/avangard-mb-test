@@ -17,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('orders', 'OrderController@index')->name('orders.index');
+
 Route::get('weather/{city}', 'WeatherInformerController@show')->name('weather.show');
